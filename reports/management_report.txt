@@ -1,0 +1,94 @@
+# ONLINE RETAIL SALES ANALYSIS AND REVENUE FORECASTING
+## Management Report
+
+**Prepared by:** Sujata Mali  
+**Project Type:** Data Analysis and Machine Learning
+
+### 1. Executive Summary
+
+This project analyzes online retail transaction data to understand revenue trends, identify top-performing countries and products, and forecast future revenue. Python was used for data cleaning, exploratory data analysis, feature engineering, and machine learning. A Streamlit dashboard was developed to present the results interactively.
+
+### 2. Dataset Overview
+
+The project uses the Online Retail dataset containing transactions from a UK-based online retailer between December 2010 and December 2011.
+
+The original dataset contains 541,909 transaction records and eight columns, including invoice number, product description, quantity, invoice date, unit price, customer ID, and country.
+
+### 3. Data Cleaning
+
+The following preprocessing steps were performed:
+
+- Removed duplicate records.
+- Removed records missing essential transaction information.
+- Excluded cancelled invoices.
+- Removed transactions with non-positive quantities or unit prices.
+- Calculated revenue using quantity multiplied by unit price.
+
+After cleaning, 524,878 transaction records remained.
+
+**Total revenue in the cleaned dataset:** 10,642,110.80 (dataset currency).
+
+### 4. Exploratory Data Analysis
+
+Three visualizations were created:
+
+**Daily Revenue Trend:** Helps examine changes in revenue over time and identify periods of higher or lower sales.
+
+**Revenue by Country:** Compares revenue across countries and helps identify important markets.
+
+**Revenue by Product:** Identifies products with the highest recorded revenue and helps guide product-level business analysis.
+
+### 5. Forecasting Methodology
+
+A Random Forest regression model was trained to estimate daily revenue.
+
+The features included:
+- Day of the week
+- Month
+- Day of the month
+- Previous day's revenue
+- Revenue from seven days earlier
+- Previous seven-day rolling average
+
+The data was divided chronologically into training and testing sets, using approximately 80% for training and 20% for testing.
+
+### 6. Model Evaluation
+
+| Metric | Random Forest | Baseline |
+|---|---:|---:|
+| MAE | 14,632.98 | 24,946.26 |
+| RMSE | 24,725.52 | 33,145.56 |
+
+The Random Forest model performed better than the previous-day baseline on both evaluation metrics.
+
+MAE measures average absolute prediction error. RMSE gives greater weight to larger prediction errors.
+
+### 7. Business Recommendations
+
+1. **Inventory planning:** Use historical sales patterns to support stock planning, while validating forecasts against current demand.
+2. **Market analysis:** Investigate the countries generating the most revenue and evaluate opportunities in other markets.
+3. **Product strategy:** Review top-revenue products when planning promotions and inventory.
+4. **Revenue monitoring:** Track daily sales and investigate unusually high or low revenue.
+5. **Forecast improvement:** Retrain and evaluate the model using recent transaction data before using it for operational decisions.
+
+### 8. Limitations
+
+- The dataset covers 2010–2011 and does not represent current retail conditions.
+- The forecast is an estimate, not a guarantee.
+- The model uses a limited set of calendar and historical revenue features.
+- The forecast should be validated with newer data before being used for real business decisions.
+
+### 9. Conclusion
+
+This project demonstrates the use of Python, data analysis, visualization, and machine learning to study retail sales and estimate future revenue. The Streamlit dashboard makes the results easier to explore and communicate. Further improvements could include newer data, seasonal and holiday features, and comparisons with additional forecasting methods.
+
+### 10. Project Links
+
+**Live Dashboard:**  
+https://online-retail-sales-forecasting-yane9ppkct9nsjgjwaqsvx.streamlit.app/
+
+**GitHub Repository:**  
+https://github.com/SujataMali03/online-retail-sales-forecasting
+
+**Dataset Source:**  
+https://archive.ics.uci.edu/dataset/352/online+retail
